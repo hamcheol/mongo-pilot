@@ -15,7 +15,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.google.common.collect.Lists;
-import com.slowhand.mongo.pilot.enums.YesOrNoType;
 import com.slowhand.mongo.pilot.model.entity.Friend;
 import com.slowhand.mongo.pilot.model.entity.User;
 import com.slowhand.mongo.pilot.service.FriendService;
@@ -73,16 +72,9 @@ public class FriendServiceTest {
 
 			User user = User.builder()
 				.nid(nid)
-				.nidNo(nid + nid.length())
-				.payMbrNo(mbrNo)
+				.mbrNo(mbrNo)
 				.name(name)
 				.telNo(telNo)
-				.lastModDate(LocalDateTime.now()
-					.minusDays(friendCount)
-					.minusHours(friendCount)
-					.minusMinutes(friendCount)
-					.minusSeconds(friendCount)
-					.truncatedTo(ChronoUnit.SECONDS))
 				.build();
 
 			List<Friend> friends = Lists.newArrayList();
@@ -93,11 +85,10 @@ public class FriendServiceTest {
 
 				Friend f = Friend.builder()
 					.nid(fmbrArray[0])
-					.nidNo(fmbrArray[0] + fmbrArray[0].length())
-					.payMbrNo(Long.parseLong(fmbrArray[1]))
+					.mbrNo(Long.parseLong(fmbrArray[1]))
 					.name(fmbrArray[2])
 					.telNo(fmbrArray[3])
-					.isFavorite(j % 3 == 2 ? YesOrNoType.Y : YesOrNoType.N)
+					.favorite(j % 3 == 2 ? true : false)
 					.lastModDate(LocalDateTime.now()
 						.minusDays(friendCount + j)
 						.minusHours(friendCount + j + 11)

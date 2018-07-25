@@ -1,6 +1,5 @@
 package com.slowhand.mongo.pilot.model.entity;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -13,16 +12,10 @@ import lombok.Data;
 @Builder
 @Document(collection = "friends")
 public class User {
-	
 	@Id
-	private String id;
-	
 	private String nid;
-	private String nidNo;
-	private Long payMbrNo;
+	private Long mbrNo;
 	private String name;
 	private String telNo;
-	private LocalDateTime lastModDate;
-	
 	private List<Friend> friends;
 }
