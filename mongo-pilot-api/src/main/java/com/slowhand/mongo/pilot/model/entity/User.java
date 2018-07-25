@@ -1,4 +1,4 @@
-package com.slowhand.mongo.pilot.model;
+package com.slowhand.mongo.pilot.model.entity;
 
 import java.time.LocalDateTime;
 import java.util.List;

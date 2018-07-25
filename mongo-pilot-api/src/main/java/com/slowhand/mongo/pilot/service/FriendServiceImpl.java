@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.slowhand.mongo.pilot.model.User;
+import com.slowhand.mongo.pilot.model.entity.User;
 import com.slowhand.mongo.pilot.repository.FriendRepository;
 
 @Service
@@ -21,6 +21,11 @@ public class FriendServiceImpl implements FriendService {
 	@Override
 	public void bulkSave(List<User> users) {
 		friendRepository.saveAll(users);
+	}
+
+	@Override
+	public User getUserAndFriends(String id) {
+		return friendRepository.findByNid(id);
 	}
 
 }

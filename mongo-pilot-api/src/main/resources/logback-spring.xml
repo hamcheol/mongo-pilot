@@ -3,7 +3,7 @@
 	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
     <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
     
-	<property name="application_name" value="mongo-pilot" />
+	<property name="application_name" value="mongo-pilot-api" />
 	<property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/>
 	
 	<property name="CONSOLE_PATTERN" value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) [%20.20t] --- [%40.40C{39}][%L] : %m%n%wex"/>
@@ -13,14 +13,16 @@
 			<pattern>${CONSOLE_PATTERN}</pattern>
 		</encoder>
 	</appender>
-		
-	<springProfile name="*">
-		<logger name="com.npay.mongo.pilot" level="INFO" >
-	    	<appender-ref ref="CONSOLE"/>
-	    </logger>
-	    
-	    <root level="INFO">
-            <appender-ref ref="CONSOLE" />
-        </root>
-    </springProfile>
+	
+	<logger name="com.slowhand.mongo.pilot" level="INFO" additivity="false">
+	    <appender-ref ref="CONSOLE"/>
+	</logger>
+	
+	<logger name="org.springframework" level="INFO" additivity="false">
+		<appender-ref ref="CONSOLE"/>
+	</logger>
+	
+	<root level="INFO">
+    	<appender-ref ref="CONSOLE" />
+    </root>
 </configuration>

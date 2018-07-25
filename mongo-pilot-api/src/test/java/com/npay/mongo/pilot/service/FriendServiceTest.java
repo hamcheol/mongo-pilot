@@ -16,8 +16,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.google.common.collect.Lists;
 import com.slowhand.mongo.pilot.enums.YesOrNoType;
-import com.slowhand.mongo.pilot.model.Friend;
-import com.slowhand.mongo.pilot.model.User;
+import com.slowhand.mongo.pilot.model.entity.Friend;
+import com.slowhand.mongo.pilot.model.entity.User;
 import com.slowhand.mongo.pilot.service.FriendService;
 import com.slowhand.mongo.pilot.utils.PrintUtils;
 

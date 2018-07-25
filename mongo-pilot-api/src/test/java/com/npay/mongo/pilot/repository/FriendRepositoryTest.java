@@ -17,8 +17,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.mongodb.WriteResult;
 import com.mongodb.client.result.UpdateResult;
-import com.slowhand.mongo.pilot.model.Friend;
-import com.slowhand.mongo.pilot.model.User;
+import com.slowhand.mongo.pilot.model.entity.Friend;
+import com.slowhand.mongo.pilot.model.entity.User;
 import com.slowhand.mongo.pilot.repository.FriendRepository;
 import com.slowhand.mongo.pilot.utils.PrintUtils;
 
