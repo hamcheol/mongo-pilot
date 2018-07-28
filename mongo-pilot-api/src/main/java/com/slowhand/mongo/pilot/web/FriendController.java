@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.slowhand.mongo.pilot.model.entity.User;
-import com.slowhand.mongo.pilot.model.response.UserResponse;
+import com.slowhand.mongo.pilot.model.response.ApiResponse;
 import com.slowhand.mongo.pilot.service.FriendService;
 
 @RestController
@@ -17,8 +17,8 @@ public class FriendController {
 	private FriendService friendService;
 	
 	@RequestMapping("/{id}/friends")
-	public ResponseEntity<UserResponse> list(@PathVariable String id) {
+	public ResponseEntity<ApiResponse<User>> list(@PathVariable String id) {
 		User user = friendService.getUserAndFriends(id);
-		return new ResponseEntity<>(new UserResponse(user), HttpStatus.OK);
+		return new ResponseEntity<>(new ApiResponse<User>(user, "OK"), HttpStatus.OK);
 	}
 }
