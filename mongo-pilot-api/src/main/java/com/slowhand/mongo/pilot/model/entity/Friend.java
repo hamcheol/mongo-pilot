@@ -14,7 +14,6 @@ public class Friend {
 	private Long seq;
 	private String nid;
 	private Long mbrNo;
-	private StatusType status;
 	private String name;
 	private String telNo;
 	private boolean favorite;
